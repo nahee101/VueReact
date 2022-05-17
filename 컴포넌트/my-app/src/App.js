@@ -5,6 +5,7 @@ import ArrowComponent from './components/ArrowComponent';
 import LoginComponentClass from './components/LoginComponent-class';
 import LoginComponentFunction from './components/LoginComponent-function';
 import StateComponent from './components/StateComponent';
+import ArrowState from './components/ArrowState';
 
 /* 함수형 컴포넌트 */
 function App() {
@@ -41,7 +42,9 @@ function App() {
           // props으로 들어오면 속성 이름으로 사용
         />
 
-        <StateComponent/>
+        <StateComponent />
+
+        <ArrowState />
       </header>
     </div>
   );
