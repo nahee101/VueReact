@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>JSX className</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+        <!-- CSS 적용-->
+        <link rel="stylesheet" href="react.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+        
+        function MyApp() {
+            const name = 'react';
+            // CSS의 클래스로 설정된 디자인은 className을 사용해서 가져온다
+            return (
+                <div>
+                    <div className = 'react-style'>
+                        {name}
+                    </div>
+                    
+                    <div className = 'react-style-ex01'>
+                        {name}
+                        <input type="text"></input> {/*자바스크립트 주석 사용*/}
+                        <input type="text"
+                            //태그가 여러 줄로 나뉘었을 경우 //로 주석 사용 가능
+                        />
+                    </div>
+                </div>
+            )
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+
+        </script>
+    </body>
+</html>

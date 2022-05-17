@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>JSX 조건문 실습</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+        
+        function MyApp() {
+            const user = '성춘향';
+            const login = false;
+            const content = '내용이 있습니다.';
+            return (
+                // 조건문 ? (JSX): null 대신
+                // 조건문 && (JSX)를 이용해 
+                // false일 때 dom을 생성하지 않는 방법도 있다.
+                <div>
+                    <div id = 'ex02-and'>
+                        {user === '홍길동' && (
+                            <h1>홍길동입니다.</h1>
+                        )}
+                        <p>내용이 출력되고 있습니다.</p>
+                    </div>
+
+                    <div id = 'ex03-and'>
+                        {login == true && (
+                            <div>
+                                <h1>로그인에 성공했습니다.</h1>
+                                <h3>{user}입니다.</h3>
+                            </div>
+                        )}
+                        <div>
+                            <h1>로그인해주세요.</h1>
+                            <h3>리액트를 시작하였습니다.</h3>
+                        </div>
+                    </div>
+
+                    <div id = 'ex-content'>
+                        {content != '' && (
+                            <h1>{content}</h1>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+
+        </script>
+    </body>
+</html>
