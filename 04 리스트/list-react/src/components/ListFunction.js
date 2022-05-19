@@ -9,6 +9,9 @@ const ListFunction = () => {
         { id: 4, text: "겨울" },
     ]);
 
+    const [inputText, setInputText] = useState('');
+    const [inputId, setInputId] = useState(5);
+
     // id 값을 받아와서 받아온 id를 제외한 값을 저장하는 함수
     // 받아온 id 값만 제외하였기에 id 를 삭제하는 것과 동일
     const deleteSeason = (id) => {
@@ -16,21 +19,36 @@ const ListFunction = () => {
         setSeason(nextSeason);
     };
 
+    // changeText
+    const changeText = (e) => {setInputText(e.target.value)};
+
+    // getText
+    const getText = (e) => {
+        const nextSeason = season.concat({
+            id: InputId,
+            text: inputText
+        });
+        setSeason(nextSeason);
+        setInputId(inputId +1);
+    }
+
     return (
         <div>
-        <ul>
-            {season.map((s) => (
-            <li
-                key={s.id}
-                onClick={() => {
-                // 함수에 값을 전달하기위해서는 익명함수로 감싸서 사용
-                deleteSeason(s.id);
-                }}
-            >
-                {s.text}
-            </li>
-            ))}
-        </ul>
+            <input type='text' name='inputText' onChange={chnageText}></input>
+            <button onClick={getText}>추가</button>
+            <ul>
+                {season.map((s) => (
+                <li
+                    key={s.id}
+                    onClick={() => {
+                    // 함수에 값을 전달하기위해서는 익명함수로 감싸서 사용
+                    deleteSeason(s.id);
+                    }}
+                >
+                    {s.text}
+                </li>
+                ))}
+            </ul>
         </div>
     );
 };
