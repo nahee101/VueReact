@@ -2,7 +2,10 @@ import { useSearchParams } from "react-router-dom";
 
 // 쿼리 스트링은 ?로 시작함
 // 키 = 값 한 쌍으로 들어오는 값
+// 여러 개의 키 = 값으로 들어오게 될 때는 &를 사용하여 들고 온다
 import { useLocation } from "react-router-dom";
+
+// react-router-dom은 v별로 차이가 크기 때문에 package json에서 v 확인 잘 해야 함
 
 const Intro = () => {
     const [searchParams, setSearchParams] = useSearchParams();
