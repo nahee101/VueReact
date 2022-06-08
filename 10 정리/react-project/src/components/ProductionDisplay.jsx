@@ -26,13 +26,20 @@ const ProductionDisplay = ( {product} ) => {
                         {/* data.state.comments의 값을 바로 쓰지 말고,
                         product 값과 name을 비교해서 같으면 사용 */}
                         {
-                            data.state.comments.map(
-                                (comment) => (
-                                    <li key={comment.id}>
-                                        {comment.user}: {comment.text}
-                                    </li>
-                                )
-                            )
+                            data.state.comments.map((comment) => (
+                                <li key={comment.id}>
+                                    {/* ⭐ 이미지 미리보기 - JS DOM을 선택해서 가져오기 위해 id를 작성한다 */}
+                                    <div 
+                                    id="img_box" 
+                                    style={
+                                        {width: "50px", height: "50px", 
+                                        backgroundSize: "cover",
+                                        backgroundImage: `url(${comment.image})` }}>
+                                        
+                                    </div>
+                                    {comment.user} : {comment.text}
+                                </li>
+                            ))
                         }
                         
                     </Card.Footer>
