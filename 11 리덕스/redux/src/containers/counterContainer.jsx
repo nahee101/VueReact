@@ -6,20 +6,20 @@ import { decrease, increase } from "../modules/counter";
 /* 호출했을 때 Counter comp가 보이도록 하는데, 
 * Counter는 props 값을 받아와 화면을 출력한다
 */
-const ConterContainer = ({ number, increase, decrease }) => {
+const CounterContainer = ({ number, increase, decrease }) => {
     return <Counter number={number} onIncrease={increase} onDecrease={decrease} />;
 };
 
-/* stateProps 값 */
+/* connect에 넣을 갓ㅂ을 따로 지정해줄 때
+// stateProps 값 
 const mapStateToProps = (state) => ({
     number: state.counter.number,
 });
 
-/* dispatchProps 값 */
+// dispatchProps 값
 const mapDispatchToProps = (dispatch) => ({
     increase: () => {
         dispatch(increase()); // dispatch({type:INCREASE}) > useReduce
-        console.log("+");
     },
     decrease: () => {
         dispatch(decrease());
@@ -31,3 +31,14 @@ const mapDispatchToProps = (dispatch) => ({
 // mapStateToProps(state), mapDispatchToProps(dispatch) 를 연결해준다.
 // 위와 같은 형태를 고정해서 사용.
 export default connect(mapStateToProps, mapDispatchToProps)(ConterContainer);
+*/
+
+export default connect(
+    state => ({
+        number: state.counter.number
+    }),
+    {
+        increase, //counter 모듈에서 가져온 함수
+        decrease // counter 모듈에서 가져온 함수
+    }
+)(CounterContainer);
