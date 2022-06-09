@@ -18,7 +18,7 @@ const initialState = {
 
 /* 리듀서 함수, 상태 값을 변화시키는 함수 */
 // 이때, state는 기본값을 정해서 넣을 수 있음
-function counter(state=initialState, action) {
+function counter(state = initialState, action) {
     switch(action.type) {
         case INCREASE:
             return {number: state.number +1}
